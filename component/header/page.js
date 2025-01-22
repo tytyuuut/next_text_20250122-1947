@@ -5,6 +5,7 @@ import "@/node_modules/bootstrap/dist/js/bootstrap.bundle.min.js";
 import "@/style/hander/style.css";
 
 export default function HeaderPage() {
+  //測試推版
         // document.currentScript.insertAdjacentHTML("beforebegin", header);
 
         // // header
