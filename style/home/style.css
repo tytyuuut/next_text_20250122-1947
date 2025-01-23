@@ -506,6 +506,7 @@ section {
 }
 
 .index .area .area-main .item .image h4 {
+    font-weight: 700;
     position: absolute;
     top: 50%;
     left: 50%;

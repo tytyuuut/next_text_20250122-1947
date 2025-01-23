@@ -5,24 +5,7 @@ import "@/node_modules/bootstrap/dist/js/bootstrap.bundle.min.js";
 import "@/style/hander/style.css";
 
 export default function HeaderPage() {
-  //測試推版
-        // document.currentScript.insertAdjacentHTML("beforebegin", header);
 
-        // // header
-
-        // var header = document.querySelector("header");
-        // var header_logo = document.querySelector(".header-logo");
-        // window.addEventListener("scroll", function () {
-        // if (window.scrollY > 0) {
-        //     header.classList.add("active");
-        //     header_logo.classList.add("active");
-        //     up_icon.classList.add("active");
-        // } else {
-        //     header.classList.remove("active");
-        //     header_logo.classList.remove("active");
-        //     up_icon.classList.remove("active");
-        // }
-        // });
 
   return (
     <>
@@ -75,7 +58,7 @@ export default function HeaderPage() {
                   aria-label="Search"
                 />
                 <button className={"btn search-bg"} type="submit">
-                  <img src="/images/header/search.png" />
+                  <img src="/images/header/search.png" alt="search" />
                 </button>
               </form>
             </li>
@@ -86,7 +69,7 @@ export default function HeaderPage() {
                 aria-expanded="false"
                 href="#"
               >
-                <img src="/images/header/cart.png" />
+                <img src="/images/header/cart.png" alt="cart" />
               </a>
               <ul className={"dropdown-menu"}>
                 <div className={"memeber"}>
@@ -97,7 +80,7 @@ export default function HeaderPage() {
                     <ul className={"content"}>
                       <li className={"d-flex li"}>
                         <div className={"image"}>
-                          <img src="/images/header/image 63.jpg" />
+                          <img src="/images/header/image 63.jpg" alt="img" />
                         </div>
                         <div className={"text"}>
                           <p>3 人露營帳篷 MH100 Fresh</p>
@@ -108,7 +91,7 @@ export default function HeaderPage() {
                       </li>
                       <li className={"d-flex li"}>
                         <div className={"image"}>
-                          <img src="/images/header/image 63.jpg" />
+                          <img src="/images/header/image 63.jpg" alt="img" />
                         </div>
                         <div className={"text"}>
                           <p>3 人露營帳篷 MH100 Fresh</p>
@@ -134,7 +117,7 @@ export default function HeaderPage() {
                 aria-expanded="false"
                 href="#"
               >
-                <img src="/images/header/camp_owner.png" />
+                <img src="/images/header/camp_owner.png" alt="campowner" />
               </a>
               <ul className={"dropdown-menu"}>
                 <div className={"memeber"}>
@@ -157,7 +140,7 @@ export default function HeaderPage() {
                 aria-expanded="false"
                 href="#"
               >
-                <img src="/images/header/user.png" />
+                <img src="/images/header/user.png" alt="user" />
                 <span className={"num"}>1</span>
               </a>
               <ul className={"dropdown-menu"}>
@@ -172,7 +155,7 @@ export default function HeaderPage() {
                           <img
                             className={"member-img"}
                             src="/images/header/1737511517859.jpg"
-                          />
+                          alt="coupon" />
                         </a>
                       </li>
                     </ul>

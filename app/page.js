@@ -1,23 +1,52 @@
 "use client";
-import Header from "../component/header/page";
-import Footer from "../component/footer/page";
-import React, { useRef, useState } from 'react';
-// Import Swiper React components
-import { Swiper, SwiperSlide } from 'swiper/react';
+import { useEffect } from "react";
+import { Swiper, SwiperSlide } from "swiper/react";
+import AOS from "aos";
+import "aos/dist/aos.css";
+
+import "@/node_modules/bootstrap/dist/css/bootstrap.min.css";
+import "@/node_modules/bootstrap/dist/js/bootstrap.bundle.min.js";
+
+import "@/style/hander/style.css";
 
 // Import Swiper styles
-import 'swiper/css';
-import 'swiper/css/pagination';
-import 'swiper/css/navigation';
+import "swiper/css";
+import "swiper/css/pagination";
+import "swiper/css/navigation";
 
 import "@/style/home/style.css";
 
-import { Autoplay, Pagination, Navigation } from 'swiper/modules';
+import { Autoplay, Pagination } from "swiper/modules";
 
-export default function Home(props) {
+export default function Home() {
+  useEffect(() => {
+    AOS.init({
+      duration: 700, // 动画持续时间
+      easing: "ease-in-out", // 动画缓动效果
+      once: false, // 确保动画可以多次触发
+      mirror: true, // 允许在滚动回到视口时触发动画
+    });
+
+    // 手动刷新 AOS 动画状态
+    window.addEventListener("scroll", () => {
+      AOS.refresh();
+    });
+
+    return () => {
+      window.removeEventListener("scroll", () => {
+        AOS.refresh();
+      });
+    };
+  }, []);
+
+  // AOS.init({
+  //   duration: 700, // 动画持续时间
+  //   easing: "ease-in-out", // 动画缓动效果
+  //   once: false, // 确保动画可以多次触发
+  //   mirror: true, // 允许在滚动回到视口时触发动画
+  // });
   return (
     <>
-      <Header />
       <main className="index">
         <section className="banner">
           <article className="banner-main container">
@@ -44,38 +73,30 @@ export default function Home(props) {
               data-aos-duration={700}
             >
               <Swiper
-                modules={[Autoplay, Pagination, Navigation]} // 注册所需模块
+                modules={[Autoplay, Pagination]} // 注册所需模块
                 spaceBetween={10} // 每个滑块之间的距离
                 slidesPerView={1} // 一次显示一个滑块
+                centeredSlides={true} // 居中显示
                 autoplay={{
                   delay: 3500,
                   disableOnInteraction: false,
                 }}
                 pagination={{ clickable: true }} // 启用分页
-                className="mySwiper banner-swiper ">
-                <SwiperSlide><img src="/images/index/banner.jpg" alt /></SwiperSlide>
-                <SwiperSlide><img src="/images/index/banner.jpg" alt /></SwiperSlide>
-                <SwiperSlide><img src="/images/index/banner.jpg" alt /></SwiperSlide>
-                <SwiperSlide><img src="/images/index/banner.jpg" alt /></SwiperSlide>
+                className="mySwiper banner-swiper "
+              >
+                <SwiperSlide>
+                  <img src="/images/index/banner.jpg" alt="sliderImg" />
+                </SwiperSlide>
+                <SwiperSlide>
+                  <img src="/images/index/banner.jpg" alt="sliderImg" />
+                </SwiperSlide>
+                <SwiperSlide>
+                  <img src="/images/index/banner.jpg" alt="sliderImg" />
+                </SwiperSlide>
+                <SwiperSlide>
+                  <img src="/images/index/banner.jpg" alt="sliderImg" />
+                </SwiperSlide>
               </Swiper>
-              {/* <div className="swiper banner-swiper">
-          <div className="swiper-wrapper">
-            <div className="swiper-slide">
-              <img src="/images/index/banner.jpg" alt />
-            </div>
-            <div className="swiper-slide">
-              <img src="/images/index/banner.jpg" alt />
-            </div>
-            <div className="swiper-slide">
-              <img src="/images/index/banner.jpg" alt />
-            </div>
-            <div className="swiper-slide">
-              <img src="/images/index/banner.jpg" alt />
-            </div>
-          </div>
-       
-          <div className="swiper-pagination" />
-        </div> */}
             </article>
           </article>
         </section>
@@ -83,8 +104,8 @@ export default function Home(props) {
           <h2
             className="title-style text-center"
             data-aos="fade-down"
-            data-aos-easing="linear"
-            data-aos-duration={700}
+            data-aos-easing="ease-in-out"
+            data-aos-duration="700"
           >
             最新活動資訊
           </h2>
@@ -92,78 +113,78 @@ export default function Home(props) {
           <article
             className="new-main"
             data-aos="fade-left"
-            data-aos-easing="linear"
+            data-aos-easing="ease-in-out"
             data-aos-duration={700}
           >
-            <div className="swiper new-swiper">
-              <div className="swiper-wrapper">
-                <div className="swiper-slide">
-                  <a href="#">
-                    <div className="image">
-                      <img src="/images/index/image8.jpg" alt="img" />
-                    </div>
-                    <p>3 人露營帳篷 MH100 Fresh</p>
-                  </a>
-                </div>
-                <div className="swiper-slide">
-                  <a href="#">
-                    <div className="image">
-                      <img src="/images/index/image9.jpg" alt="img" />
-                    </div>
-                    <p>3 人露營帳篷 MH100 Fresh</p>
-                  </a>
-                </div>
-                <div className="swiper-slide">
-                  <a href="#">
-                    <div className="image">
-                      <img src="/images/index/image10.jpg" alt="img" />
-                    </div>
-                    <p>3 人露營帳篷 MH100 Fresh</p>
-                  </a>
-                </div>
-                <div className="swiper-slide">
-                  <a href="#">
-                    <div className="image">
-                      <img src="/images/index/image8.jpg" alt="img" />
-                    </div>
-                    <p>3 人露營帳篷 MH100 Fresh</p>
-                  </a>
-                </div>
-                <div className="swiper-slide">
-                  <a href="#">
-                    <div className="image">
-                      <img src="/images/index/image9.jpg" alt="img" />
-                    </div>
-                    <p>3 人露營帳篷 MH100 Fresh</p>
-                  </a>
-                </div>
-                <div className="swiper-slide">
-                  <a href="#">
-                    <div className="image">
-                      <img src="/images/index/image10.jpg" alt="img" />
-                    </div>
-                    <p>3 人露營帳篷 MH100 Fresh</p>
-                  </a>
-                </div>
-                <div className="swiper-slide">
-                  <a href="#">
-                    <div className="image">
-                      <img src="/images/index/image8.jpg" alt="img" />
-                    </div>
-                    <p>3 人露營帳篷 MH100 Fresh</p>
-                  </a>
-                </div>
-                <div className="swiper-slide">
-                  <a href="#">
-                    <div className="image">
-                      <img src="/images/index/image9.jpg" alt="img" />
-                    </div>
-                    <p>3 人露營帳篷 MH100 Fresh</p>
-                  </a>
-                </div>
-              </div>
-              <div className="swiper-pagination" />
-            </div>
+            <Swiper
+              modules={[Autoplay, Pagination]} // 注册所需模块
+              spaceBetween={97} // 每个滑块之间的距离
+              slidesPerView={3.5} // 一次显示一个滑块
+              centeredSlides={false} // 居中显示
+              loop={true} // 循环
+              autoplay={{
+                delay: 2500,
+                disableOnInteraction: false,
+              }}
+              className="mySwiper new-swiper "
+            >
+              <SwiperSlide>
+                <a href="#">
+                  <div className="image">
+                    <img src="/images/index/image8.jpg" alt="img" />
+                  </div>
+                  <p>3 人露營帳篷 MH100 Fresh</p>
+                </a>
+              </SwiperSlide>
+              <SwiperSlide>
+                <a href="#">
+                  <div className="image">
+                    <img src="/images/index/image9.jpg" alt="img" />
+                  </div>
+                  <p>3 人露營帳篷 MH100 Fresh</p>
+                </a>
+              </SwiperSlide>
+              <SwiperSlide>
+                <a href="#">
+                  <div className="image">
+                    <img src="/images/index/image10.jpg" alt="img" />
+                  </div>
+                  <p>3 人露營帳篷 MH100 Fresh</p>
+                </a>
+              </SwiperSlide>
+              <SwiperSlide>
+                <a href="#">
+                  <div className="image">
+                    <img src="/images/index/image8.jpg" alt="img" />
+                  </div>
+                  <p>3 人露營帳篷 MH100 Fresh</p>
+                </a>
+              </SwiperSlide>
+              <SwiperSlide>
+                <a href="#">
+                  <div className="image">
+                    <img src="/images/index/image9.jpg" alt="img" />
+                  </div>
+                  <p>3 人露營帳篷 MH100 Fresh</p>
+                </a>
+              </SwiperSlide>
+              <SwiperSlide>
+                <a href="#">
+                  <div className="image">
+                    <img src="/images/index/image10.jpg" alt="img" />
+                  </div>
+                  <p>3 人露營帳篷 MH100 Fresh</p>
+                </a>
+              </SwiperSlide>
+              <SwiperSlide>
+                <a href="#">
+                  <div className="image">
+                    <img src="/images/index/image9.jpg" alt="img" />
+                  </div>
+                  <p>3 人露營帳篷 MH100 Fresh</p>
+                </a>
+              </SwiperSlide>
+            </Swiper>
           </article>
         </section>
         <section className="d-flex product">
@@ -216,7 +237,7 @@ export default function Home(props) {
             >
               <span className="item">
                 <div className="image">
-                  <img src="/images/index/image 63.jpg" alt />
+                  <img src="/images/index/image 63.jpg" alt="img" />
                 </div>
                 <h3 className="title">4 人露營穿骨快開帳篷 Arpenaz</h3>
                 <p className="price">
@@ -232,7 +253,7 @@ export default function Home(props) {
             >
               <span className="item">
                 <div className="image">
-                  <img src="/images/index/image 65.jpg" alt />
+                  <img src="/images/index/image 65.jpg" alt="img" />
                 </div>
                 <h3 className="title">3 人露營帳篷 MH100 Fresh</h3>
                 <p className="price">
@@ -248,7 +269,7 @@ export default function Home(props) {
             >
               <span className="item">
                 <div className="image">
-                  <img src="/images/index/image 66.jpg" alt />
+                  <img src="/images/index/image 66.jpg" alt="img" />
                 </div>
                 <h3 className="title">雙人多日登山圓頂帳篷 MT500 Mesh</h3>
                 <p className="price">
@@ -264,7 +285,7 @@ export default function Home(props) {
             >
               <span className="item">
                 <div className="image">
-                  <img src="/images/index/image (1).jpg" alt />
+                  <img src="/images/index/image (1).jpg" alt="img" />
                 </div>
                 <h3 className="title">6 人露營穿骨客廳帳 Arpenaz Base</h3>
                 <p className="price">
@@ -280,7 +301,7 @@ export default function Home(props) {
             >
               <span className="item">
                 <div className="image">
-                  <img src="/images/index/image (2).jpg" alt />
+                  <img src="/images/index/image (2).jpg" alt="img" />
                 </div>
                 <h3 className="title">雙人獨立式三季多日登山帳篷</h3>
                 <p className="price">
@@ -296,7 +317,7 @@ export default function Home(props) {
             >
               <span className="item">
                 <div className="image">
-                  <img src="/images/index/image (3).jpg" alt />
+                  <img src="/images/index/image (3).jpg" alt="img" />
                 </div>
                 <h3 className="title">6 人露營穿骨客廳帳 Arpenaz Base</h3>
                 <p className="price">
@@ -343,7 +364,7 @@ export default function Home(props) {
               <div className="image ">
                 <div className="mask" />
                 <h4>桃園市</h4>
-                <img src="/images/index/image 52.jpg" alt />
+                <img src="/images/index/image 52.jpg" alt="img" />
               </div>
             </div>
             <div
@@ -355,7 +376,7 @@ export default function Home(props) {
               <div className="image ">
                 <div className="mask" />
                 <h4>嘉義市</h4>
-                <img src="/images/index/Frame 367.jpg" alt />
+                <img src="/images/index/Frame 367.jpg" alt="img" />
               </div>
             </div>
             <div
@@ -367,7 +388,7 @@ export default function Home(props) {
               <div className="image ">
                 <div className="mask" />
                 <h4>苗栗縣</h4>
-                <img src="/images/index/Frame 368.jpg" alt />
+                <img src="/images/index/Frame 368.jpg" alt="img" />
               </div>
             </div>
             <div
@@ -379,7 +400,7 @@ export default function Home(props) {
               <div className="image ">
                 <div className="mask" />
                 <h4>新北市</h4>
-                <img src="/images/index/Mask group.jpg" alt />
+                <img src="/images/index/Mask group.jpg" alt="img" />
               </div>
             </div>
             {/*  */}
@@ -392,7 +413,7 @@ export default function Home(props) {
               <div className="image ">
                 <div className="mask" />
                 <h4>桃園市</h4>
-                <img src="/images/index/image 52.jpg" alt />
+                <img src="/images/index/image 52.jpg" alt="img" />
               </div>
             </div>
             <div
@@ -404,7 +425,7 @@ export default function Home(props) {
               <div className="image ">
                 <div className="mask" />
                 <h4>台南市</h4>
-                <img src="/images/index/Frame 367.jpg" alt />
+                <img src="/images/index/Frame 367.jpg" alt="img" />
               </div>
             </div>
             <div
@@ -416,7 +437,7 @@ export default function Home(props) {
               <div className="image ">
                 <div className="mask" />
                 <h4>苗栗縣</h4>
-                <img src="/images/index/Frame 368.jpg" alt />
+                <img src="/images/index/Frame 368.jpg" alt="img" />
               </div>
             </div>
             <div
@@ -428,7 +449,7 @@ export default function Home(props) {
               <div className="image ">
                 <div className="mask" />
                 <h4>新北市</h4>
-                <img src="/images/index/Mask group.jpg" alt />
+                <img src="/images/index/Mask group.jpg" alt="img" />
               </div>
             </div>
             <div
@@ -440,7 +461,7 @@ export default function Home(props) {
               <div className="image ">
                 <div className="mask" />
                 <h4>桃園市</h4>
-                <img src="/images/index/image 52.jpg" alt />
+                <img src="/images/index/image 52.jpg" alt="img" />
               </div>
             </div>
             <div
@@ -452,7 +473,7 @@ export default function Home(props) {
               <div className="image ">
                 <div className="mask" />
                 <h4>嘉義市</h4>
-                <img src="/images/index/Frame 367.jpg" alt />
+                <img src="/images/index/Frame 367.jpg" alt="img" />
               </div>
             </div>
             <div
@@ -464,7 +485,7 @@ export default function Home(props) {
               <div className="image ">
                 <div className="mask" />
                 <h4>苗栗縣</h4>
-                <img src="/images/index/Frame 368.jpg" alt />
+                <img src="/images/index/Frame 368.jpg" alt="img" />
               </div>
             </div>
             <div
@@ -476,7 +497,7 @@ export default function Home(props) {
               <div className="image ">
                 <div className="mask" />
                 <h4>新北市</h4>
-                <img src="/images/index/Mask group.jpg" alt />
+                <img src="/images/index/Mask group.jpg" alt="img" />
               </div>
             </div>
             <div
@@ -488,7 +509,7 @@ export default function Home(props) {
               <div className="image ">
                 <div className="mask" />
                 <h4>桃園市</h4>
-                <img src="/images/index/image 52.jpg" alt />
+                <img src="/images/index/image 52.jpg" alt="img" />
               </div>
             </div>
             <div
@@ -500,7 +521,7 @@ export default function Home(props) {
               <div className="image ">
                 <div className="mask" />
                 <h4>嘉義市</h4>
-                <img src="/images/index/Frame 367.jpg" alt />
+                <img src="/images/index/Frame 367.jpg" alt="img" />
               </div>
             </div>
             <div
@@ -512,7 +533,7 @@ export default function Home(props) {
               <div className="image ">
                 <div className="mask" />
                 <h4>苗栗縣</h4>
-                <img src="/images/index/Frame 368.jpg" alt />
+                <img src="/images/index/Frame 368.jpg" alt="img" />
               </div>
             </div>
             <div
@@ -524,7 +545,7 @@ export default function Home(props) {
               <div className="image ">
                 <div className="mask" />
                 <h4>新北市</h4>
-                <img src="/images/index/Mask group.jpg" alt />
+                <img src="/images/index/Mask group.jpg" alt="img" />
               </div>
             </div>
             <div
@@ -536,7 +557,7 @@ export default function Home(props) {
               <div className="image ">
                 <div className="mask" />
                 <h4>苗栗縣</h4>
-                <img src="/images/index/Frame 368.jpg" alt />
+                <img src="/images/index/Frame 368.jpg" alt="img" />
               </div>
             </div>
             <div
@@ -548,7 +569,7 @@ export default function Home(props) {
               <div className="image ">
                 <div className="mask" />
                 <h4>新北市</h4>
-                <img src="/images/index/Mask group.jpg" alt />
+                <img src="/images/index/Mask group.jpg" alt="img" />
               </div>
             </div>
             <div
@@ -560,7 +581,7 @@ export default function Home(props) {
               <div className="image ">
                 <div className="mask" />
                 <h4>苗栗縣</h4>
-                <img src="/images/index/Frame 368.jpg" alt />
+                <img src="/images/index/Frame 368.jpg" alt="img" />
               </div>
             </div>
             <div
@@ -572,7 +593,7 @@ export default function Home(props) {
               <div className="image ">
                 <div className="mask" />
                 <h4>新北市</h4>
-                <img src="/images/index/Mask group.jpg" alt />
+                <img src="/images/index/Mask group.jpg" alt="img" />
               </div>
             </div>
           </article>
@@ -606,98 +627,98 @@ export default function Home(props) {
           </h2>
           <article className="container hot-main">
             <a
-              href
+              href="#"
               className="item"
               data-aos="fade-up"
               data-aos-easing="linear"
               data-aos-duration={700}
             >
               <div className="image">
-                <img src="/images/index/hot1.jpg" alt />
+                <img src="/images/index/hot1.jpg" alt="img" />
               </div>
               <p>435挑水少年家</p>
             </a>
             <a
-              href
+              href="#"
               className="item"
               data-aos="fade-up"
               data-aos-easing="linear"
               data-aos-duration={700}
             >
               <div className="image">
-                <img src="/images/index/hot2.jpg" alt />
+                <img src="/images/index/hot2.jpg" alt="img" />
               </div>
               <p>谷漢露營區</p>
             </a>
             <a
-              href
+              href="#"
               className="item"
               data-aos="fade-up"
               data-aos-easing="linear"
               data-aos-duration={700}
             >
               <div className="image">
-                <img src="/images/index/hot3.jpg" alt />
+                <img src="/images/index/hot3.jpg" alt="img" />
               </div>
               <p>3 人露營帳篷 MH100 Fresh</p>
             </a>
             <a
-              href
+              href="#"
               className="item"
               data-aos="fade-up"
               data-aos-easing="linear"
               data-aos-duration={700}
             >
               <div className="image">
-                <img src="/images/index/hot4.jpg" alt />
+                <img src="/images/index/hot4.jpg" alt="img" />
               </div>
               <p>435挑水少年家</p>
             </a>
             <a
-              href
+              href="#"
               className="item"
               data-aos="fade-up"
               data-aos-easing="linear"
               data-aos-duration={700}
             >
               <div className="image">
-                <img src="/images/index/hot5.jpg" alt />
+                <img src="/images/index/hot5.jpg" alt="img" />
               </div>
               <p>松鶴延年</p>
             </a>
             <a
-              href
+              href="#"
               className="item"
               data-aos="fade-up"
               data-aos-easing="linear"
               data-aos-duration={700}
             >
               <div className="image">
-                <img src="/images/index/hot6.jpg" alt />
+                <img src="/images/index/hot6.jpg" alt="img" />
               </div>
               <p>橘子園</p>
             </a>
             <a
-              href
+              href="#"
               className="item"
               data-aos="fade-up"
               data-aos-easing="linear"
               data-aos-duration={700}
             >
               <div className="image">
-                <img src="/images/index/hot7.jpg" alt />
+                <img src="/images/index/hot7.jpg" alt="img" />
               </div>
               <p>露薩</p>
             </a>
             <a
-              href
+              href="#"
               className="item"
               data-aos="fade-up"
               data-aos-easing="linear"
               data-aos-duration={700}
             >
               <div className="image">
-                <img src="/images/index/hot8.jpg" alt />
+                <img src="/images/index/hot8.jpg" alt="img" />
               </div>
               <p>星空下</p>
             </a>
@@ -719,7 +740,7 @@ export default function Home(props) {
               data-aos-easing="linear"
               data-aos-duration={700}
             >
-              <form action>
+              <form>
                 <div className="mb-3">
                   <label htmlFor="name" className="form-label">
                     姓名:
@@ -794,13 +815,11 @@ export default function Home(props) {
               data-aos-easing="linear"
               data-aos-duration={700}
             >
-              <img src="/images/index/fa-bg.jpg" alt />
+              <img src="/images/index/fa-bg.jpg" alt="img" />
             </div>
           </div>
         </section>
       </main>
-
-      <Footer />
     </>
   );
 }
