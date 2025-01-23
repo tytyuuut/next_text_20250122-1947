@@ -11,7 +11,7 @@ export default function HeaderPage() {
   <div className={"container footer-main"}>
     <hr />
     <article className={"footer-logo"}>
-      <img src="/images/footer/footer.png" alt />
+      <img src="/images/footer/footer.png" alt="footer" />
     </article>
     <ul className={"footer-text"}>
       <li>
