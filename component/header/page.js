@@ -4,9 +4,9 @@ import "@/node_modules/bootstrap/dist/js/bootstrap.bundle.min.js";
 
 import "@/style/hander/style.css";
 
-import Link from 'next/link'
-
 export default function HeaderPage() {
+ 
+
   return (
     <>
       <header
@@ -15,18 +15,15 @@ export default function HeaderPage() {
       >
         <article className={"left-nav d-flex"}>
           <div className={"logo"}>
-          <Link href="/">
-          <img
+            <a href="index.html">
+              <img
                 className={"header-logo"}
                 src="/images/header/logo.png"
                 width={154}
                 height={106}
                 alt="logo"
               />
-          </Link>
-            {/* <a href="index.html">
-              
-            </a> */}
+            </a>
           </div>
           <h1 className={"d-none"}>camping</h1>
         </article>
@@ -61,7 +58,7 @@ export default function HeaderPage() {
                   aria-label="Search"
                 />
                 <button className={"btn search-bg"} type="submit">
-                  <img src="/images/header/search.png" alt="search" />
+                  <img src="/images/header/search.png" />
                 </button>
               </form>
             </li>
@@ -72,7 +69,7 @@ export default function HeaderPage() {
                 aria-expanded="false"
                 href="#"
               >
-                <img src="/images/header/cart.png" alt="cart" />
+                <img src="/images/header/cart.png" />
               </a>
               <ul className={"dropdown-menu"}>
                 <div className={"memeber"}>
@@ -83,7 +80,7 @@ export default function HeaderPage() {
                     <ul className={"content"}>
                       <li className={"d-flex li"}>
                         <div className={"image"}>
-                          <img src="/images/header/image 63.jpg" alt="img" />
+                          <img src="/images/header/image 63.jpg" />
                         </div>
                         <div className={"text"}>
                           <p>3 人露營帳篷 MH100 Fresh</p>
@@ -94,7 +91,7 @@ export default function HeaderPage() {
                       </li>
                       <li className={"d-flex li"}>
                         <div className={"image"}>
-                          <img src="/images/header/image 63.jpg" alt="img" />
+                          <img src="/images/header/image 63.jpg" />
                         </div>
                         <div className={"text"}>
                           <p>3 人露營帳篷 MH100 Fresh</p>
@@ -105,10 +102,9 @@ export default function HeaderPage() {
                       </li>
                     </ul>
                     <button>
-                    <Link href="/cart">訂單結帳</Link>
-                      {/* <a href="cart.html" target="_blank">
+                      <a href="cart.html" target="_blank">
                         訂單結帳
-                      </a> */}
+                      </a>
                     </button>
                   </div>
                 </div>
@@ -121,7 +117,7 @@ export default function HeaderPage() {
                 aria-expanded="false"
                 href="#"
               >
-                <img src="/images/header/camp_owner.png" alt="campowner" />
+                <img src="/images/header/camp_owner.png" />
               </a>
               <ul className={"dropdown-menu"}>
                 <div className={"memeber"}>
@@ -144,7 +140,7 @@ export default function HeaderPage() {
                 aria-expanded="false"
                 href="#"
               >
-                <img src="/images/header/user.png" alt="user" />
+                <img src="/images/header/user.png" />
                 <span className={"num"}>1</span>
               </a>
               <ul className={"dropdown-menu"}>
@@ -155,15 +151,12 @@ export default function HeaderPage() {
                     </article>
                     <ul className={"content"}>
                       <li>
-                      <Link href="/get-coupon">
-                           <img
+                        <a href="coupon.html" target="_blank">
+                          <img
                             className={"member-img"}
                             src="/images/header/1737511517859.jpg"
-                          alt="coupon" />
-                      </Link>
-                        {/* <a href="coupon.html" target="_blank">
-                          
-                        </a> */}
+                          />
+                        </a>
                       </li>
                     </ul>
                     <button>

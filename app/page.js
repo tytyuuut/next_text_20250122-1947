@@ -3,7 +3,7 @@ import { useEffect } from "react";
 import AOS from "aos";
 import "aos/dist/aos.css";
 
-import "@/node_modules/bootstrap/dist/css/bootstrap.min.css";
+import 'bootstrap/dist/css/bootstrap.min.css';
 import "@/node_modules/bootstrap/dist/js/bootstrap.bundle.min.js";
 
 import "@/style/home/style.css";
